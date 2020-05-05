@@ -1,0 +1,24 @@
+<h3>Settle up bills</h3>
+
+<%= render partial: "shared/buttons" %>
+
+<table class="table table-dark">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Associated Bill</th>
+    <th>Cost per person</th>
+    <th>Settle up</th>
+  </tr>
+
+  <% @bills_participant.each do |bill| %>
+    <tr>
+      <td colspan="1"><%= bill.bill_details[:first_name] %></td>
+      <td colspan="1"><%= bill.bill_details[:last_name] %></td>
+      <td colspan="1"><%= bill.bill_details[:bill_name] %></td>
+      <td colspan="1"><%= bill.bill_details[:cost]%></td>
+      <td><%= link_to 'Settle up', edit_bills_participant_path(id: bill.participant_id, bill_id: bill.bill_id),
+                      class:"btn btn-primary #{bill_settle(bill)}" , style:"width:200px" %></td>
+    </tr>
+  <%end %>
+</table>

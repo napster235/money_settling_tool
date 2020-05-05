@@ -1,0 +1,11 @@
+<%= f.text_field :first_name %>
+<br/>
+<%= f.text_field :last_name %>
+<br/>
+<%= f.text_field :email %>
+<br/>
+<%= collection_select(:participant, :bill_ids, Bill.all, :id, :bill_name_and_amount, {}, { :multiple => true} ) %>
+<br/>
+
+<%= f.submit "Save" %>
+<%= link_to "Cancel", participants_path, class: 'btn btn-primary', style:"width:80px"%>

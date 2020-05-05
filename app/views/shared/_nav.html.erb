@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to "Money Tool", root_path, class: "navbar-brand" %>
+  <div class="form-inline">
+    <div style="padding-left: 10px;">
+
+      <% if user_signed_in? %>
+        <%= link_to "Sign Out", signout_path, class: "btn btn-outline-warning", role: "button" %>
+        <%# <%= link_to_unless_current "Dashboard", dashboard_path, class: "btn btn-outline-info", role: "button" do  %>
+          <%# # link_to "Home", root_path, class: "btn btn-outline-info", role: "button" %>
+          <%# # end %>
+        <p><%= current_user.email %></p>
+        <p>User name: <%= current_user.name %></p>
+      <% else %>
+        <%= link_to "Log in", login_path, class: "btn btn-outline-primary", role: "button" %>
+        <%= link_to "Sign Up", signup_path, class: "btn btn-outline-success", role: "button" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

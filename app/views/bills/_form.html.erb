@@ -1,0 +1,13 @@
+<%= f.text_field :name %>
+<br/>
+<%= f.text_field :total_amount, append: "RON"  %>
+<br/>
+<%= f.text_area :description %>
+<br/>
+<%= f.label :participants %>
+<br/>
+<%= collection_select(:bill, :participant_ids, Participant.all, :id, :name_with_initial, {}, { :multiple => true} ) %>
+<%#= f.select("participant_ids", options_from_collection_for_select(@participants, "id", :name_with_initial, @bill.participant_ids), {}, multiple: true) %>
+<br/>
+<%= f.submit "Save" %>
+<%= link_to "Cancel", bills_path, class: 'btn btn-primary', style:"width:80px" %>

@@ -1,0 +1,6 @@
+<div class="my-5 mx-auto">
+  <%= form_tag({:controller => type, :action => "import"}, :method => "post", multipart: true) do %>
+    <%= file_field_tag :file, accept: 'text/csv', required: true %>
+    <%= submit_tag "Import #{type}"%>
+  <% end %>
+</div>

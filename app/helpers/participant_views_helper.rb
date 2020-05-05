@@ -1,0 +1,2 @@
+module ParticipantViewsHelper
+end

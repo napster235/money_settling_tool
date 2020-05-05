@@ -1,0 +1,9 @@
+<div class="px-5">  
+  <%= render partial: "shared/content_index" %>
+
+  <div style="float:right">
+    <%= link_to "Bills", bills_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Participants', participants_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Settled bills', bills_participant_index_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>

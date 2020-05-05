@@ -1,0 +1,12 @@
+<div style="float:right">
+  <% if current_page?(bills_path) %>
+    <%= link_to 'Participants', participants_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Settled bills', bills_participant_index_path, class: 'btn btn-primary btn-lg' %>
+  <% elsif current_page?(participants_path) %>
+    <%= link_to 'Bills', bills_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Settled bills', bills_participant_index_path, class: 'btn btn-primary btn-lg' %>
+  <% elsif current_page?(bills_participant_index_path) %>
+    <%= link_to 'Participants', participants_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Bills', bills_path, class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div>

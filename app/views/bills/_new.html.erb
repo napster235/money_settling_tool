@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Add new bill</h4>
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+
+<div class="modal-body">
+  <%= bootstrap_form_for(@new_bill) do |f| %>
+
+    <%= render partial: "bills/form", locals: { f: f } %>
+
+  <% end %>
+</div>
