@@ -12,7 +12,7 @@
     "jquery": "^3.5.0",
     "popper.js": "^1.16.0",
     "turbolinks": "^5.2.0",
-    "yarn": "^1.19.2"
+    "yarn": "^1.22.0"
   },
   "version": "0.1.0",
   "devDependencies": {
