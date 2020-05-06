@@ -4,7 +4,7 @@ class UsersInvitationsController < ApplicationController
     sign_out send("current_#{resource_name}") if send("#{resource_name}_signed_in?")
     set_minimum_password_length
     resource.invitation_token = params[:invitation_token]
-    redirect_to "http://localhost:3000/users/invitation/accept?invitation_token=#{params[:invitation_token]}"
+    redirect_to "https://money-tool.herokuapp.com/users/invitation/accept?invitation_token=#{params[:invitation_token]}"
   end
 
   def update
