@@ -3,6 +3,7 @@ class Bill < ApplicationRecord
   validates :name, presence: true
   validates :total_amount, presence: true
   has_and_belongs_to_many :participants
+  belongs_to :user, optional: true
 
   default_scope { order(created_at: :desc) }
   # scope :with_higher_value, ->(length = 1) { where("LENGTH(total_amount) > ?", length) }

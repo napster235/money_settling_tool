@@ -10,6 +10,8 @@ class Participant < ApplicationRecord
 
   has_and_belongs_to_many :bills
 
+  belongs_to :user, optional: true
+
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       Participant.create! row.to_hash
