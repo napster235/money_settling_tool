@@ -4,7 +4,7 @@
 <br/>
 <%= f.text_field :email %>
 <br/>
-<%= collection_select(:participant, :bill_ids, Bill.all, :id, :bill_name_and_amount, {}, { :multiple => true} ) %>
+<%= collection_select(:participant, :bill_ids, Bill.where(:user_id => current_user.id), :id, :bill_name_and_amount, {}, { :multiple => true} ) %>
 <br/>
 
 <%= f.submit "Save" %>
