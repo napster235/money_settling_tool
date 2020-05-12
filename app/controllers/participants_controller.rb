@@ -3,7 +3,7 @@
 class ParticipantsController < ApplicationController
   def index
     # @participants = Participant.all
-    @q = Participant.ransack(params[:q])
+    @q = Participant.where(:user_id => current_user.id).ransack(params[:q])
     @participants = @q.result.paginate(:page => params[:page], :per_page => 10)
   end
 
@@ -19,7 +19,7 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @new_participant = Participant.create(participant_params)
+    @new_participant = Participant.create(participant_params.merge({user_id: current_user.id}))
     redirect_to participants_path
   end
 

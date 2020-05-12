@@ -3,7 +3,7 @@ class BillsController < ApplicationController
 
   def index
     # @bills = Bill.all
-    @q = Bill.ransack(params[:q])
+    @q = Bill.where(:user_id => current_user.id).ransack(params[:q])
     @bills = @q.result.paginate(:page => params[:page], :per_page => 10)
     # @bills = @q.result.page(params[:page])
   end
@@ -15,7 +15,7 @@ class BillsController < ApplicationController
   end
 
   def create
-    @new_bill = Bill.create(bill_params)
+    @new_bill = Bill.create(bill_params.merge({user_id: current_user.id}))
     redirect_to bills_path
   end
 
