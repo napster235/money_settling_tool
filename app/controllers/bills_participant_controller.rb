@@ -2,10 +2,10 @@
 
 class BillsParticipantController < ApplicationController
   def index
-    # @bills_participant = BillsParticipant.where(:user_id => current_user.id)
+    @bills_participant = BillsParticipant.where(:user_id => current_user.id)
 
     #sql caching
-    @bills_participant = BillsParticipant.all
+    # @bills_participant = BillsParticipant.all
   end
 
   def edit

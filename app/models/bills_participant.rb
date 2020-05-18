@@ -3,6 +3,8 @@
 class BillsParticipant < ApplicationRecord
   default_scope { order(:settled, created_at: :desc) }
 
+  belongs_to :user, optional: true
+
   def bill_details
     bill = Bill.find(bill_id)
     participant = Participant.find(participant_id)

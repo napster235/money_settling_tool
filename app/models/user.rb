@@ -6,4 +6,5 @@ class User < ApplicationRecord
   
   has_many :bills
   has_many :participants
+  has_many :bills_participants
 end
