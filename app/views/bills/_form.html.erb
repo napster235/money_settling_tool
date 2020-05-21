@@ -6,8 +6,7 @@
 <br/>
 <%= f.label :participants %>
 <br/>
-<%= collection_select(:bill, :participant_ids, Participant.where(:user_id => current_user.id), :id, :name_with_initial, {}, { :multiple => true} ) %>
-<%#= f.select("participant_ids", options_from_collection_for_select(@participants, "id", :name_with_initial, @bill.participant_ids), {}, multiple: true) %>
+<%= f.select(:participant_ids, options_from_collection_for_select(current_user_participants, :id, :name_with_initial, f.object.participant_ids), {}, { :multiple => true}) %>
 <br/>
 <%= f.submit "Save" %>
 <%= link_to "Cancel", bills_path, class: 'btn btn-primary', style:"width:80px" %>

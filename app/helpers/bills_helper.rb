@@ -6,4 +6,9 @@ module BillsHelper
       end
     end
   end
+
+  def current_user_participants
+    # Participant.where(:user_id => current_user.id)
+    current_user.participants
+  end
 end

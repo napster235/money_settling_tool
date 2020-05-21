@@ -16,6 +16,7 @@ class BillsController < ApplicationController
 
   def create
     @new_bill = Bill.create(bill_params.merge({user_id: current_user.id}))
+    BillsParticipant.where(bill_id: @new_bill.id, user_id: nil).update_all(user_id: current_user.id)
     redirect_to bills_path
   end
 
@@ -32,6 +33,7 @@ class BillsController < ApplicationController
   def update
     @bill = Bill.find_by_id(params[:id])
     if @bill.nil? || @bill.update(bill_params)
+      BillsParticipant.where(bill_id: @bill.id, user_id: nil).update_all(user_id: current_user.id)
       redirect_to bills_path
     else
       render :edit

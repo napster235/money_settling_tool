@@ -20,6 +20,7 @@ class ParticipantsController < ApplicationController
 
   def create
     @new_participant = Participant.create(participant_params.merge({user_id: current_user.id}))
+    BillsParticipant.where(participant_id: @new_participant.id, user_id: nil).update_all(user_id: current_user.id)
     redirect_to participants_path
   end
 
@@ -36,6 +37,7 @@ class ParticipantsController < ApplicationController
   def update
     @participant = Participant.find_by_id(params[:id])
     if @participant.nil? || @participant.update(participant_params)
+      BillsParticipant.where(participant_id: @participant.id, user_id: nil).update_all(user_id: current_user.id)
       redirect_to participants_path
     else
       render :edit
